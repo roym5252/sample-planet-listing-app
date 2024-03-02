@@ -22,12 +22,17 @@ class PlanetListScreenPreDataLoadUnitTest {
     @Before
     fun setUp() {
         MockitoAnnotations.openMocks(this)
+        setContent()
     }
 
     @Test
     fun `check loader is displayed`() {
-        setContent()
         composeTestRule.onNodeWithTag("planetListLoader").assertIsDisplayed()
+    }
+
+    @Test
+    fun `check title is shown`() {
+        composeTestRule.onNodeWithTag("planetListTitle").assertIsDisplayed()
     }
 
     private fun setContent() {
