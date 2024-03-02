@@ -43,6 +43,9 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
+    implementation (libs.rootbeer.lib)
+    implementation (libs.timber)
+    implementation(libs.androidx.security.crypto)
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

@@ -99,5 +99,8 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    implementation(project(":core"))
+    implementation(project(":feature-planet-list"))
     implementation(project(":util"))
+
 }
