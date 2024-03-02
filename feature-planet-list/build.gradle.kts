@@ -55,6 +55,8 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+
+    testOptions.unitTests.isIncludeAndroidResources = true
 }
 
 dependencies {
@@ -90,4 +92,7 @@ dependencies {
     testImplementation (libs.mockito.kotlin)
     kaptTest(libs.hilt.compiler)
     testAnnotationProcessor(libs.hilt.compiler)
+
+    implementation(project(":core"))
+    implementation(project(":common-ui"))
 }
