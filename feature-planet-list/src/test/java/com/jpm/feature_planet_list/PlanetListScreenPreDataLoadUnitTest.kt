@@ -7,6 +7,7 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.mockito.Mock
 import org.mockito.MockitoAnnotations
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
@@ -18,6 +19,8 @@ class PlanetListScreenPreDataLoadUnitTest {
     @get:Rule
     val composeTestRule = createComposeRule()
 
+    @Mock
+    private lateinit var planetListViewModel: PlanetListViewModel
 
     @Before
     fun setUp() {
@@ -35,10 +38,15 @@ class PlanetListScreenPreDataLoadUnitTest {
         composeTestRule.onNodeWithTag("planetListTitle").assertIsDisplayed()
     }
 
+    @Test
+    fun `check subtitle is shown`() {
+        composeTestRule.onNodeWithTag("planetListSubTitle").assertIsDisplayed()
+    }
+
     private fun setContent() {
 
         composeTestRule.setContent {
-            PlanetListScreen()
+            PlanetListScreen(planetListViewModel)
         }
     }
 }

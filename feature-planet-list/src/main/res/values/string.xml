@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="planet_list_title">Dishwasher</string>
-    <string name="planets_found">products found</string>
-    <string name="planet_found">product found</string>
-    <string name="subtitle_error_text">No products loaded</string>
+    <string name="planet_list_title">Planets</string>
+    <string name="planets_found">planets found</string>
+    <string name="planet_found">planet found</string>
+    <string name="subtitle_error_text">No planets loaded</string>
     <string name="loading">Loading…</string>
     <string name="no_planets_available">No planets available.</string>
     <string name="no_internet_message">No internet connectivity. Tap to retry.</string>
