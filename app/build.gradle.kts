@@ -83,4 +83,7 @@ dependencies {
     testImplementation(libs.mockwebserver)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    implementation(project(":core"))
+    implementation(project(":feature-planet-list"))
 }
