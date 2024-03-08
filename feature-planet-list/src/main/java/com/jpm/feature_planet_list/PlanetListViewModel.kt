@@ -2,11 +2,16 @@ package com.jpm.feature_planet_list
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
+import androidx.lifecycle.viewModelScope
+import androidx.paging.cachedIn
+import com.jpm.core.domain.GetPlanetPagingDataUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class PlanetListViewModel(application: Application):AndroidViewModel(application) {
-
-    private val _uiState = MutableStateFlow(PlanetListScreenUiState())
-    val uiState: StateFlow<PlanetListScreenUiState> = _uiState
+@HiltViewModel
+class PlanetListViewModel @Inject constructor(
+    application: Application,
+    getPlanetPagingDataUseCase: GetPlanetPagingDataUseCase
+) : AndroidViewModel(application) {
+    val planetPagingFlow = getPlanetPagingDataUseCase().cachedIn(viewModelScope)
 }

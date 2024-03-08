@@ -20,7 +20,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 @Suppress("UnstableApiUsage")
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -40,6 +40,8 @@ android {
 
 dependencies {
 
+    val room_version = "2.6.1"
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.hilt.android)
@@ -54,6 +56,12 @@ dependencies {
     implementation(libs.androidx.security.crypto)
     implementation (libs.gson)
     implementation (libs.timber)
+
+    implementation(libs.androidx.room.runtime)
+    annotationProcessor(libs.androidx.room.compiler)
+    // To use Kotlin Symbol Processing (KSP)
+    kapt(libs.androidx.room.compiler)
+    implementation (libs.androidx.room.paging)
 
     testImplementation(libs.junit)
     testImplementation (libs.kotlinx.coroutines.test)

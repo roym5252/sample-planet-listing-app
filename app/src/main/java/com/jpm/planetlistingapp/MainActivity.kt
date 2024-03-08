@@ -10,6 +10,7 @@ import androidx.navigation.compose.rememberNavController
 import com.jpm.feature_planet_list.PlanetListScreen
 import com.jpm.feature_planet_list.SCREEN_NAME_PLANET_LIST
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.jpm.util.LogUtil
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -32,7 +33,10 @@ fun AppContent() {
     NavHost(navController = navController, startDestination = SCREEN_NAME_PLANET_LIST) {
 
         composable(SCREEN_NAME_PLANET_LIST) {
-            PlanetListScreen()
+
+            PlanetListScreen { id, name ->
+                LogUtil.d("Clicked planet ID:$id and planet name:$name")
+            }
         }
     }
 
