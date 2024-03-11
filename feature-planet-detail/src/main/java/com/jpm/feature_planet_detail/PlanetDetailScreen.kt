@@ -20,9 +20,16 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.jpm.common_ui.compose.CustomProgressLoader
@@ -55,7 +62,18 @@ fun PlanetDetailScreen(
 
                         title = {
                             planetTitle?.let {
-                                Text(text = planetTitle)
+                                Text(
+                                    text = it,
+                                    style = TextStyle(
+                                        fontSize = 24.sp,
+                                        fontWeight = FontWeight(800),
+                                        fontFamily = FontFamily(Font(com.jpm.common_ui.R.font.montserrat_bold)),
+                                        color = Color(0xFF000000),
+
+                                        ),
+                                    maxLines = 1,
+                                    overflow = TextOverflow.Ellipsis
+                                )
                             }
 
                         }, colors = TopAppBarDefaults.topAppBarColors(
@@ -90,7 +108,7 @@ fun PlanetDetailScreen(
         ) {
             Box(modifier = Modifier.padding(innerPadding)) {
 
-                if (planetDetailUiState.loading){
+                if (planetDetailUiState.loading) {
 
                     CustomProgressLoader(
                         Modifier.fillMaxSize(),
@@ -101,46 +119,63 @@ fun PlanetDetailScreen(
                         )
                     )
 
-                }else{
+                } else {
 
                     planetDetailUiState.planet?.let {
 
                         LazyColumn(content = {
 
-                            item{
-                                ProductDetailCell(stringResource(id = R.string.climate),it.climate)
+                            item {
+                                ProductDetailCell(stringResource(id = R.string.climate), it.climate)
                             }
 
-                            item{
-                                ProductDetailCell(stringResource(id = R.string.diameter),it.diameter)
+                            item {
+                                ProductDetailCell(
+                                    stringResource(id = R.string.diameter),
+                                    it.diameter
+                                )
                             }
 
-                            item{
-                                ProductDetailCell(stringResource(id = R.string.gravity),it.gravity)
+                            item {
+                                ProductDetailCell(stringResource(id = R.string.gravity), it.gravity)
                             }
 
-                            item{
-                                ProductDetailCell(stringResource(id = R.string.orbital_period),it.orbitalPeriod)
+                            item {
+                                ProductDetailCell(
+                                    stringResource(id = R.string.orbital_period),
+                                    it.orbitalPeriod
+                                )
                             }
 
-                            item{
-                                ProductDetailCell(stringResource(id = R.string.population),it.population)
+                            item {
+                                ProductDetailCell(
+                                    stringResource(id = R.string.population),
+                                    it.population
+                                )
                             }
 
-                            item{
-                                ProductDetailCell(stringResource(id = R.string.rotation_period),it.rotationPeriod)
+                            item {
+                                ProductDetailCell(
+                                    stringResource(id = R.string.rotation_period),
+                                    it.rotationPeriod
+                                )
                             }
 
-                            item{
-                                ProductDetailCell(stringResource(id = R.string.surface_water),it.surfaceWater)
+                            item {
+                                ProductDetailCell(
+                                    stringResource(id = R.string.surface_water),
+                                    it.surfaceWater
+                                )
                             }
 
-                            item{
-                                ProductDetailCell(stringResource(id = R.string.terrain),it.terrain)
+                            item {
+                                ProductDetailCell(stringResource(id = R.string.terrain), it.terrain)
                             }
 
 
-                        }, modifier = Modifier.fillMaxSize().testTag("planetDetailList"))
+                        }, modifier = Modifier
+                            .fillMaxSize()
+                            .testTag("planetDetailList"))
                     }
                 }
 
