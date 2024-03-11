@@ -101,7 +101,7 @@ TDD approach was consistently employed throughout the app development process. I
 
 StartUp Test results (Samsung S23):
 
-timeToInitialDisplayMs   min 344.3,   median 372.6,   max 612.4
+timeToInitialDisplayMs   min 250.3,   median 275.6,   max 291.5
 
 Additional details: https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview
 
