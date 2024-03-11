@@ -5,7 +5,6 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.jpm.core.data.repository.PlanetRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collectLatest
@@ -21,7 +20,6 @@ class PlanetDetailViewModel @Inject constructor(application:Application, private
     fun getPlanetDetail(planetId:Long){
 
         viewModelScope.launch {
-            delay(200)
             planetRepository.getPlanet(planetId).collectLatest {
                 _uiState.value = PlanetDetailScreenUiState(false,it)
             }
