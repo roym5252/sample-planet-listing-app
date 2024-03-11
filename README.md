@@ -1,5 +1,8 @@
 # sample-planet-listing-app
 
+![Copy of Copy of Movie App](https://github.com/roym5252/sample-planet-listing-app/assets/30793139/1b42dbc9-f4a3-4b0c-9ff1-0899e21244d1)
+
+
 ## Architecture
 
 Modern Android App Architecture is used because it clearly separates the app into three layers: UI, Domain, and Data. This makes it easy to write unit tests for the Domain layer, and to keep all UI elements in the UI layer.
