@@ -1,15 +1,12 @@
 package com.jpm.common_ui.compose
 
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.unit.dp
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
@@ -18,10 +15,9 @@ import com.airbnb.lottie.compose.rememberLottieComposition
 import com.jpm.common_ui.R
 
 @Composable
-fun CustomProgressLoader(modifier: Modifier, contentDescriptionText: String) {
+fun CustomProgressLoader(progressHolderBoxModifier:Modifier,progressModifier: Modifier, contentDescriptionText: String) {
 
-    Box(modifier = Modifier
-        .fillMaxSize()
+    Box(modifier = progressHolderBoxModifier
         .semantics {
             contentDescription = contentDescriptionText
         }, contentAlignment = Alignment.Center) {
@@ -36,7 +32,7 @@ fun CustomProgressLoader(modifier: Modifier, contentDescriptionText: String) {
         LottieAnimation(
             composition = composition,
             progress = { progress },
-            modifier = modifier.size(200.dp)
+            modifier = progressModifier
         )
     }
 

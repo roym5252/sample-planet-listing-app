@@ -58,7 +58,7 @@ fun InfoMessageAndReload(message: String, onClickEvent: () -> Unit) {
                     .testTag("reloadIcon")
                     .padding(8.dp)
                     .clickable(onClick = onClickEvent),
-                contentDescription = "Reload product"
+                contentDescription = "Reload planet"
             )
         }
     }

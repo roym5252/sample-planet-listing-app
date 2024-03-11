@@ -20,7 +20,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 @Suppress("UnstableApiUsage")
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -43,6 +43,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
+    implementation (libs.androidx.room.paging)
 
     testImplementation(libs.mockwebserver)
     testImplementation (libs.robolectric)
@@ -52,4 +53,8 @@ dependencies {
     testImplementation (libs.mockito.kotlin)
     kaptTest(libs.hilt.compiler)
     testAnnotationProcessor(libs.hilt.compiler)
+
+    implementation(project(":datasource-remote"))
+    implementation(project(":datasource-local"))
+    implementation(project(":util"))
 }

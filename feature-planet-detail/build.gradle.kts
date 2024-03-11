@@ -20,7 +20,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 @Suppress("UnstableApiUsage")
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -53,9 +53,12 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+
     kotlinOptions {
         jvmTarget = "17"
     }
+
+    testOptions.unitTests.isIncludeAndroidResources = true
 }
 
 dependencies {
@@ -91,4 +94,7 @@ dependencies {
     testImplementation (libs.mockito.kotlin)
     kaptTest(libs.hilt.compiler)
     testAnnotationProcessor(libs.hilt.compiler)
+
+    implementation(project(":core"))
+    implementation(project(":common-ui"))
 }

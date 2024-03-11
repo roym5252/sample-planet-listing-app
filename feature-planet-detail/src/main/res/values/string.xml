@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="loading_planet_detail">Loading Planet Detail</string>
+    <string name="back_button">Back</string>
+    <string name="climate">Climate</string>
+    <string name="diameter">Diameter</string>
+    <string name="gravity">Gravity</string>
+    <string name="orbital_period">Orbital Period</string>
+    <string name="population">Population</string>
+    <string name="rotation_period">Rotation Period</string>
+    <string name="surface_water">Surface Water</string>
+    <string name="terrain">Terrain</string>
+</resources>
