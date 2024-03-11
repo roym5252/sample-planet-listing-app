@@ -1,6 +1,6 @@
 # sample-planet-listing-app
 
-![Copy of Copy of Movie App](https://github.com/roym5252/sample-planet-listing-app/assets/30793139/1b42dbc9-f4a3-4b0c-9ff1-0899e21244d1)
+![Planets_Sample_App](https://github.com/roym5252/sample-planet-listing-app/assets/30793139/01c906a5-0560-422e-b570-368a43aeb247)
 
 
 ## Architecture
