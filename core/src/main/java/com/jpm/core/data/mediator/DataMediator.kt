@@ -53,6 +53,7 @@ class DataMediator @Inject constructor(
             if (remotePlanetsResult is TaskResult.Success) {
 
                 if (loadKey>1){
+                    //Dummy delay to emulate time consuming operation and to make bottom loader visible during pagination.
                     delay(3000)
                 }
 
