@@ -13,6 +13,7 @@ import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import com.jpm.feature_planet_detail.PlanetDetailScreen
 import com.jpm.util.LogUtil
+import com.jpm.util.makeSystemStatusBarTransparent
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,6 +21,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         installSplashScreen()
+        makeSystemStatusBarTransparent(R.color.grey)
         setContent {
             AppContent()
         }
