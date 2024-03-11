@@ -36,4 +36,7 @@ class LocalDataSourceImpl @Inject constructor(private val appDatabase: AppDataba
     override fun pagingSource(): PagingSource<Int, LocalPlanet> {
         return appDatabase.localPlanetDao().pagingSource()
     }
+
+    override fun getPlanet(id: Long): Flow<LocalPlanet> =  appDatabase.localPlanetDao().getPlanet(id)
+
 }

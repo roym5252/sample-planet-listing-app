@@ -11,6 +11,11 @@ android {
     namespace = "com.jpm.datasource_remote"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
+    @Suppress("UnstableApiUsage")
+    buildFeatures {
+        buildConfig = true
+    }
+
     defaultConfig {
         minSdk = libs.versions.minSdk.get().toInt()
 
@@ -24,8 +29,13 @@ android {
             proguardFiles(
                 @Suppress("UnstableApiUsage")
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
+            buildConfigField("String", "BASE_URL", "\"https://swapi.dev/api/\"")
+        }
+
+        debug {
+            buildConfigField("String", "BASE_URL", "\"https://swapi.dev/api/\"")
         }
     }
     compileOptions {

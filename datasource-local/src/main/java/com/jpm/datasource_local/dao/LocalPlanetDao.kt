@@ -5,6 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import com.jpm.datasource_local.entity.LocalPlanet
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface LocalPlanetDao {
@@ -16,4 +17,7 @@ interface LocalPlanetDao {
 
     @Query("SELECT * FROM LocalPlanet")
     fun pagingSource(): PagingSource<Int, LocalPlanet>
+
+    @Query("SELECT * FROM LocalPlanet WHERE id = :id")
+    fun getPlanet(id:Long): Flow<LocalPlanet>
 }

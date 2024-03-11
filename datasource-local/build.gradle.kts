@@ -40,8 +40,6 @@ android {
 
 dependencies {
 
-    val room_version = "2.6.1"
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.hilt.android)
@@ -62,6 +60,8 @@ dependencies {
     // To use Kotlin Symbol Processing (KSP)
     kapt(libs.androidx.room.compiler)
     implementation (libs.androidx.room.paging)
+
+    implementation (libs.androidx.room.ktx)
 
     testImplementation(libs.junit)
     testImplementation (libs.kotlinx.coroutines.test)

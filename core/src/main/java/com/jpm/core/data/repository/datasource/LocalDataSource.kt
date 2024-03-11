@@ -14,4 +14,6 @@ interface LocalDataSource:DataSource {
     suspend fun getPlanets(): Flow<List<LocalPlanet>>
 
     fun pagingSource(): PagingSource<Int, LocalPlanet>
+
+    fun getPlanet(id:Long): Flow<LocalPlanet>
 }

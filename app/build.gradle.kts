@@ -43,9 +43,9 @@ android {
             )
         }
         create("benchmark") {
-            initWith(buildTypes.getByName("debug"))
+            initWith(buildTypes.getByName("release"))
             signingConfig = signingConfigs.getByName("debug")
-            matchingFallbacks += listOf("debug")
+            matchingFallbacks += listOf("release")
             isDebuggable = false
         }
     }
@@ -101,6 +101,7 @@ dependencies {
 
     implementation(project(":core"))
     implementation(project(":feature-planet-list"))
+    implementation(project(":feature-planet-detail"))
     implementation(project(":util"))
 
 }
