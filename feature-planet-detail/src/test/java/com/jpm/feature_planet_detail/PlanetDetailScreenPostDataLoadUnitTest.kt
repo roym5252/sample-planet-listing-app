@@ -33,26 +33,29 @@ class PlanetDetailScreenPostDataLoadUnitTest {
 
     @Before
     fun setUp() {
+
+        val planet = Planet(
+            1,
+            "Test_Planet",
+            climate = "test_climate",
+            diameter = "test_diameter",
+            gravity = "test_gravity",
+            orbitalPeriod = "test_orbitalPeriod",
+            population="test_population",
+            rotationPeriod="test_rotationPeriod",
+            surfaceWater="test_surfaceWater",
+            terrain="test_terrain"
+        )
         MockitoAnnotations.openMocks(this)
         Mockito.`when`(planetDetailViewModel.uiState).thenReturn(
             MutableStateFlow(
                 PlanetDetailScreenUiState(
                     false,
-                    Planet(
-                        1,
-                        "Test_Planet",
-                        climate = "test_climate",
-                        diameter = "test_diameter",
-                        gravity = "test_gravity",
-                        orbitalPeriod = "test_orbitalPeriod",
-                        population="test_population",
-                        rotationPeriod="test_rotationPeriod",
-                        surfaceWater="test_surfaceWater",
-                        terrain="test_terrain"
-                    )
+                    planet
                 )
             )
         )
+
         setContent()
     }
 
@@ -67,7 +70,7 @@ class PlanetDetailScreenPostDataLoadUnitTest {
     fun `check climate label and value are displayed`() {
         composeTestRule.onNodeWithTag("planetDetailList", useUnmergedTree = true).performScrollToIndex(0)
         composeTestRule.onNodeWithText("Climate", true).assertIsDisplayed()
-        composeTestRule.onNodeWithText("test_climate", true).assertIsDisplayed()
+        composeTestRule.onNodeWithText("test_climate", false).assertIsDisplayed()
     }
 
     @Test

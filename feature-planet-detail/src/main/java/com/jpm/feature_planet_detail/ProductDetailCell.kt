@@ -14,7 +14,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
-import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -69,7 +68,7 @@ fun ProductDetailCell(
                         fontSize = 16.sp,
                         modifier = Modifier
                             .weight(1f)
-                            .padding(start = 8.dp).clearAndSetSemantics{},
+                            .padding(start = 8.dp).testTag("FeatureValue-${label}"),
                         fontWeight = FontWeight(600),
                         fontFamily = FontFamily(Font(com.jpm.common_ui.R.font.montserrat_light))
                     )
